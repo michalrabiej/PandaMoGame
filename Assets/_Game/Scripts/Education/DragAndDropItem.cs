@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game.Education
@@ -9,6 +10,12 @@ namespace Game.Education
     [RequireComponent(typeof(Collider2D))] // Wymaga Collidera do wykrywania dotyku
     public class DragAndDropItem : MonoBehaviour
     {
+        /// <summary>Przedmiot trafił do pasującego slotu.</summary>
+        public static event Action<DragAndDropItem> Placed;
+
+        /// <summary>Przedmiot został upuszczony poza pasującym slotem.</summary>
+        public static event Action<DragAndDropItem> Missed;
+
         [Header("Konfiguracja Przedmiotu")]
         [Tooltip("Musi pasować do slotId w DropSlot (np. 'Trash' pasuje do 'Trash')")]
         [SerializeField] private string targetSlotId;
@@ -96,20 +103,22 @@ namespace Game.Education
             if (returnOnMiss)
             {
                 transform.position = startPosition;
-                Debug.Log("Pudło! Wracam na miejsce.");
             }
+
+            Missed?.Invoke(this);
         }
 
         private void SuccessDrop(DropSlot slot)
         {
-            Debug.Log("Brawo! Poprawne dopasowanie.");
             transform.position = slot.transform.position; // "Przyklej" do slotu
             
             // Powiadom slot
             slot.OnItemDropped();
 
             // Opcjonalnie: Wyłącz możliwość ponownego przeciągania
-            this.enabled = false; 
+            this.enabled = false;
+
+            Placed?.Invoke(this);
             
             // Opcjonalnie: Zniszcz obiekt efektownie
             // Destroy(gameObject, 0.5f);

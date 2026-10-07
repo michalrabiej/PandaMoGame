@@ -13,8 +13,8 @@ Jedno zadanie na raz. Kolejność wynika z zależności.
 
 ### Faza 1: pierwsza przygoda
 - [ ] **Posprzątaj ogród** (Level1): dziecko przeciąga śmieci do kosza, Mo cieszy się z każdego
-- [ ] `GameManager`: licznik postępu, ukończenie przygody, nagroda (liść bambusa)
-- [ ] Reakcje Mo (zmiana sprite'a: Happy / Thinking / Celebrating)
+- [x] `GameManager`: licznik postępu i ukończenie przygody (kod gotowy, niesprawdzony w Unity). Nagroda (liść bambusa) jeszcze do zrobienia
+- [x] Reakcje Mo `PandaReactions` (kod gotowy, niesprawdzony w Unity)
 - [ ] Migracja wejścia ze starego `Input` na Input System
 
 ### Faza 2: przyjaciele i kolejne przygody
