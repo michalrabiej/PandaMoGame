@@ -51,4 +51,4 @@ Gra 2D w Unity (URP) dla małych dzieci (ok. 3–6 lat). Obowiązujące dokument
 2. Jedno zadanie na raz, potem stop.
 3. Sprawdź kompilację i konsolę (lokalnie w Unity). Jeśli nie możesz, napisz to wprost.
 4. Podaj listę zmienionych plików.
-5. Commit i push tylko po wyraźnej zgodzie użytkownika.
+5. Commit i push regularnie (stała zgoda użytkownika, patrz `AGENTS.md`), na przypisaną gałąź sesji.
